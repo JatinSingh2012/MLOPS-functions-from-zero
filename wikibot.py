@@ -18,14 +18,14 @@ def get_wikipedia_summary(topic, sentences=2):
         return f"Disambiguation error. Options: {e.options}"
     except wikipedia.exceptions.PageError:
         return "Page not found."
-    except Exception as e:
+    except Exception as e: # pylint: disable=broad-except
         return f"An error occurred: {e}"
 
 if __name__ == "__main__":
     while True:
-        topic = input("Enter a Wikipedia topic (or type 'exit' to quit): ")
-        if topic.lower() == 'exit':
+        topic_in = input("Enter a Wikipedia topic (or type 'exit' to quit): ")
+        if topic_in.lower() == 'exit':
             print("Exiting.")
             break
-        print(get_wikipedia_summary(topic))
+        print(get_wikipedia_summary(topic_in))
         print("-" * 60)
