@@ -1,4 +1,3 @@
-import pytest
 from wikibot import get_wikipedia_summary
 
 def test_valid_topic():
